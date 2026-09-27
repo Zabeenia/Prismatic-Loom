@@ -1,17 +1,18 @@
-# Prismatic Loom
+# Prismatic Loom: Custom Carpets
 
-Get yourself some fancy floor fashion and feel free to Mix & Match as you like!
+New carpets on the Block - get yourself some fancy floor fashion and feel free to Mix & Match as you like!
 
 Prismatic Loom is a Fabric mod for Minecraft 26.2 that lets you create decorative carpets with freely combinable colors, patterns and borders.
 
 ## Features
 
-- Mix & Match pattern and border combinations
-- Layer swapping for pattern and border
-- Decorative fringes
-- Dynamic carpet rendering
-- Custom Prismatic Loom interface
-- English and German language support
+- Mix & Match with different patterns and borders.
+- Create your own colorful carpet combinations.
+- Carpets automatically rotate to match the player's facing direction.
+- Want a plain carpet with fringes? You can do that too!
+- Lightweight and performance-friendly.
+- Works in both singleplayer and multiplayer.
+- Vanilla Minecraft carpets remain completely unchanged.
 
 ## Requirements
 
@@ -26,6 +27,12 @@ Prismatic Loom is a Fabric mod for Minecraft 26.2 that lets you create decorativ
 2. Install Fabric API.
 3. Place the Prismatic Loom `.jar` file into your Minecraft `mods` folder.
 4. Start Minecraft with the Fabric profile.
+
+## Special Thanks / Credits
+To my dear friends Lisheen, Slothree and Knuddeldrache. Your support means the world to me!
+
+- Cat Pattern Design: Lisheen
+- Ivy Pattern Design: Knuddeldrache
 
 ## License
 

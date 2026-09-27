@@ -12,7 +12,9 @@
 		"Knuddeldrache (Ivy Design)"
 	],
 	"contact": {
-		"homepage": "https://modrinth.com/mod/prismatic-loom-custom-carpets"
+		"homepage": "https://modrinth.com/mod/prismatic-loom-custom-carpets",
+		"sources": "https://github.com/Zabeenia/Prismatic-Loom",
+		"issues": "https://github.com/Zabeenia/Prismatic-Loom/issues"
 	},
 	"license": "All Rights Reserved",
 	"icon": "assets/prismatic-carpets/icon.png",
