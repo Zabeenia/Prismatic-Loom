@@ -1,0 +1,9 @@
+{
+  "model": {
+    "type": "minecraft:special",
+    "base": "prismatic-carpets:item/prismatic_carpet_base",
+    "model": {
+      "type": "prismatic-carpets:prismatic_carpet"
+    }
+  }
+}

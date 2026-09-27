@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:loom",
+    "prismatic-carpets:prismatic_yarns",
+    "prismatic-carpets:prismatic_yarns"
+  ],
+  "result": {
+    "id": "prismatic-carpets:prismatic_loom",
+    "count": 1
+  }
+}

@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "prismatic-carpets",
+	"version": "1.0.0",
+	"name": "Prismatic Loom: Custom Carpets",
+	"description": "New carpets on the Block - get yourself some fancy floor fashion and feel free to Mix & Match as you like!",
+	"authors": [
+		"Zabeenia"
+	],
+	"contributors": [
+		"Lisheen (Cat Design)",
+		"Knuddeldrache (Ivy Design)"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/prismatic-loom-custom-carpets"
+	},
+	"license": "All Rights Reserved",
+	"icon": "assets/prismatic-carpets/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"zabeenia.prismaticcarpets.PrismaticCarpets"
+		],
+		"client": [
+			"zabeenia.prismaticcarpets.client.PrismaticCarpetsClient"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

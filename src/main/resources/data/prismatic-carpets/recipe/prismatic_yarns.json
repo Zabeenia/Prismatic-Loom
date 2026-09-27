@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:white_wool",
+    "minecraft:blue_dye",
+    "minecraft:red_dye",
+    "minecraft:yellow_dye"
+  ],
+  "result": {
+    "id": "prismatic-carpets:prismatic_yarns",
+    "count": 4
+  }
+}

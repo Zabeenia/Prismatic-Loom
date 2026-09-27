@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "prismatic-carpets:block/prismatic_loom"
+    },
+    "facing=east": {
+      "model": "prismatic-carpets:block/prismatic_loom",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "prismatic-carpets:block/prismatic_loom",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "prismatic-carpets:block/prismatic_loom",
+      "y": 270
+    }
+  }
+}

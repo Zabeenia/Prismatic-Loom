@@ -1,0 +1,14 @@
+{
+  "sources": [
+    {
+      "type": "minecraft:directory",
+      "source": "patterns",
+      "prefix": "block/patterns/"
+    },
+    {
+      "type": "minecraft:directory",
+      "source": "borders",
+      "prefix": "block/borders/"
+    }
+  ]
+}
