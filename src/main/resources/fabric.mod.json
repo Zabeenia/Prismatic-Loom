@@ -14,7 +14,8 @@
 	"contact": {
 		"homepage": "https://modrinth.com/mod/prismatic-loom-custom-carpets",
 		"sources": "https://github.com/Zabeenia/Prismatic-Loom",
-		"issues": "https://github.com/Zabeenia/Prismatic-Loom/issues"
+		"issues": "https://github.com/Zabeenia/Prismatic-Loom/issues",
+		"wiki": "https://github.com/Zabeenia/Prismatic-Loom/wiki"
 	},
 	"license": "All Rights Reserved",
 	"icon": "assets/prismatic-carpets/icon.png",

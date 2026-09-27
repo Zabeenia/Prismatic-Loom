@@ -2,6 +2,7 @@ package zabeenia.prismaticcarpets;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -41,6 +42,15 @@ public class PrismaticCarpetBlockEntity extends BlockEntity {
         this.pattern = input.getStringOr("pattern", "");
         this.border = input.getStringOr("border", "");
         this.layersSwapped = input.getBooleanOr("layers_swapped", false);
+    }
+
+    @Override
+    protected void collectImplicitComponents(DataComponentMap.Builder builder) {
+        super.collectImplicitComponents(builder);
+        builder.set(
+                PrismaticCarpetComponents.PRISMATIC_CARPET_DATA,
+                new PrismaticCarpetData(this.carpet, this.pattern, this.border, this.layersSwapped)
+        );
     }
 
     @Override

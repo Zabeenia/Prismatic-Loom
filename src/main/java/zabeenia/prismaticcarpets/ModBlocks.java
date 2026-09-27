@@ -21,6 +21,7 @@ public class ModBlocks {
             ModBlockItemIds.PRISMATIC_CARPET,
             PrismaticCarpetBlock::new,
             BlockBehaviour.Properties.of()
+                    .strength(0.1F)
     );
 
     private static Block register(

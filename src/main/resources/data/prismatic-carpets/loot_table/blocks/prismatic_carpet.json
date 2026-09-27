@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "prismatic-carpets:prismatic_carpet",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "source": "block_entity",
+              "include": [
+                "prismatic-carpets:prismatic_carpet_data",
+                "minecraft:custom_model_data"
+              ]
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}
