@@ -105,7 +105,7 @@ public class PrismaticCarpetBlockEntityRenderer
             case WEST -> 90.0F;
             default -> 0.0F;
         };
-        poseStack.mulPose(Axis.YP.rotationDegrees(rotation));
+        poseStack.rotateDegrees(Axis.YP, rotation);
         this.carpetRenderer.submit(
                 components,
                 poseStack,

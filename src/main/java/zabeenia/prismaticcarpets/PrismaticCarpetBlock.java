@@ -1,6 +1,5 @@
 package zabeenia.prismaticcarpets;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -29,11 +28,6 @@ public class PrismaticCarpetBlock extends BaseEntityBlock {
         registerDefaultState(
                 defaultBlockState().setValue(FACING, Direction.NORTH)
         );
-    }
-
-    @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
-        return simpleCodec(PrismaticCarpetBlock::new);
     }
 
     @Nullable

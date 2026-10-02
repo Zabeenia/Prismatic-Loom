@@ -102,8 +102,7 @@ public class PrismaticCarpetSpecialRenderer
                 -1,
                 carpetSprite,
                 this.sprites,
-                outlineColor,
-                null
+                outlineColor
         );
 
         // Standard: Teppich → Pattern → Border
@@ -119,8 +118,7 @@ public class PrismaticCarpetSpecialRenderer
                         -1,
                         patternSprite,
                         this.sprites,
-                        outlineColor,
-                        null
+                        outlineColor
                 );
             }
 
@@ -134,8 +132,7 @@ public class PrismaticCarpetSpecialRenderer
                         -1,
                         borderSprite,
                         this.sprites,
-                        outlineColor,
-                        null
+                        outlineColor
                 );
             }
 
@@ -153,8 +150,7 @@ public class PrismaticCarpetSpecialRenderer
                         -1,
                         borderSprite,
                         this.sprites,
-                        outlineColor,
-                        null
+                        outlineColor
                 );
             }
 
@@ -168,8 +164,7 @@ public class PrismaticCarpetSpecialRenderer
                         -1,
                         patternSprite,
                         this.sprites,
-                        outlineColor,
-                        null
+                        outlineColor
                 );
             }
         }
@@ -184,22 +179,20 @@ public class PrismaticCarpetSpecialRenderer
                 -1,
                 carpetSprite,
                 this.sprites,
-                outlineColor,
-                null
+                outlineColor
         );
 
         if (hasFoil) {
-            submitNodeCollector.submitModel(
+            submitNodeCollector.order(1).submitModel(
                     this.model,
                     Unit.INSTANCE,
                     poseStack,
-                    RenderTypes.entityGlint(),
+                    RenderTypes.patternedShieldGlint(),
                     lightCoords,
                     overlayCoords,
                     -1,
                     this.sprites.get(carpetSprite),
-                    0,
-                    null
+                    0
             );
         }
     }
