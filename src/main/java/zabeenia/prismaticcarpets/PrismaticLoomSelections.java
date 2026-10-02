@@ -5,11 +5,11 @@ public class PrismaticLoomSelections {
     public static final String[] PATTERNS = {
             "prismatic_ivy",
             "prismatic_autumn_leaves",
-            "prismatic_pumpkin",
             "prismatic_pumpkins",
             "prismatic_jackolantern",
             "prismatic_ghost",
             "prismatic_skull",
+            "prismatic_poison",
             "prismatic_barrel",
             "prismatic_cat",
             "prismatic_colibri",

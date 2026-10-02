@@ -64,7 +64,6 @@ public class ModBlocks {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS)
                 .register(creativeTab -> {
                     creativeTab.accept(PRISMATIC_LOOM.asItem());
-                    creativeTab.accept(PRISMATIC_CARPET.asItem());
                 });
     }
 }
