@@ -26,7 +26,10 @@ public class PrismaticLoomSelections {
             "prismatic_ornament_gray",
             "prismatic_ornament_navy",
             "prismatic_ornament_red",
-            "prismatic_ornament_white"
+            "prismatic_ornament_white",
+            "prismatic_oriental_blue",
+            "prismatic_oriental_red",
+            "prismatic_oriental_green"
     };
 
     public static final String[] BORDERS = {
@@ -71,6 +74,15 @@ public class PrismaticLoomSelections {
             "prismatic_border_zigzag_purple",
             "prismatic_border_zigzag_red",
             "prismatic_border_zigzag_white",
-            "prismatic_border_zigzag_yellow"
+            "prismatic_border_zigzag_yellow",
+            "prismatic_border_oriental_bluecorner",
+            "prismatic_border_oriental_blueedge",
+            "prismatic_border_oriental_blueframe",
+            "prismatic_border_oriental_redcorner",
+            "prismatic_border_oriental_rededge",
+            "prismatic_border_oriental_redframe",
+            "prismatic_border_oriental_greencorner",
+            "prismatic_border_oriental_greenedge",
+            "prismatic_border_oriental_greenframe"
     };
 }

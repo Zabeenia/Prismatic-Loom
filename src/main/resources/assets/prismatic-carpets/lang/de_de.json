@@ -50,6 +50,16 @@
   "prismatic-carpets.border.zigzag.white": "Zickzack Weiß",
   "prismatic-carpets.border.zigzag.yellow": "Zickzack Gelb",
 
+  "prismatic-carpets.border.oriental.bluecorner": "Orientalisch Blau Ecke",
+  "prismatic-carpets.border.oriental.blueedge": "Orientalisch Blau Rand",
+  "prismatic-carpets.border.oriental.blueframe": "Orientalisch Blau Rahmen",
+  "prismatic-carpets.border.oriental.redcorner": "Orientalisch Rot Ecke",
+  "prismatic-carpets.border.oriental.rededge": "Orientalisch Rot Rand",
+  "prismatic-carpets.border.oriental.redframe": "Orientalisch Rot Rahmen",
+  "prismatic-carpets.border.oriental.greencorner": "Orientalisch Grün Ecke",
+  "prismatic-carpets.border.oriental.greenedge": "Orientalisch Grün Rand",
+  "prismatic-carpets.border.oriental.greenframe": "Orientalisch Grün Rahmen",
+
   "prismatic-carpets.pattern.autumn_leaves": "Herbstblätter",
   "prismatic-carpets.pattern.pumpkins": "Kürbisse",
   "prismatic-carpets.pattern.jackolantern": "Kürbislaterne",
@@ -73,5 +83,8 @@
   "prismatic-carpets.pattern.ornament_gray": "Ornament Grau",
   "prismatic-carpets.pattern.ornament_navy": "Ornament Blau",
   "prismatic-carpets.pattern.ornament_red": "Ornament Rot",
-  "prismatic-carpets.pattern.ornament_white": "Ornament Weiß"
+  "prismatic-carpets.pattern.ornament_white": "Ornament Weiß",
+  "prismatic-carpets.pattern.oriental_blue": "Orientalisch Blau",
+  "prismatic-carpets.pattern.oriental_red": "Orientalisch Rot",
+  "prismatic-carpets.pattern.oriental_green": "Orientalisch Grün"
 }
