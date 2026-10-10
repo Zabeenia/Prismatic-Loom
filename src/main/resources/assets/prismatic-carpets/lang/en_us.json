@@ -4,6 +4,7 @@
   "item.prismatic-carpets.prismatic_yarns": "Prismatic Yarn",
 
   "prismatic-carpets.border.autumn": "Autumn",
+  "prismatic-carpets.border.winter.snowflake": "Snowflake",
   "prismatic-carpets.border.ivy": "Ivy",
 
   "prismatic-carpets.border.classic.black": "Classic Black",
@@ -66,6 +67,8 @@
   "prismatic-carpets.pattern.ghost": "Ghost",
   "prismatic-carpets.pattern.skull": "Skull",
   "prismatic-carpets.pattern.poison": "Poison Vial",
+  "prismatic-carpets.pattern.snowflake": "Snowflake",
+  "prismatic-carpets.pattern.snowman": "Snowman",
   "prismatic-carpets.pattern.barrel": "Barrel",
   "prismatic-carpets.pattern.cat": "Cat",
   "prismatic-carpets.pattern.colibri": "Hummingbird",
