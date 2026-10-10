@@ -4,6 +4,7 @@
   "item.prismatic-carpets.prismatic_yarns": "Prismatisches Garn",
 
   "prismatic-carpets.border.autumn": "Herbst",
+  "prismatic-carpets.border.winter.snowflake": "Schneeflocke",
   "prismatic-carpets.border.ivy": "Efeu",
 
   "prismatic-carpets.border.classic.black": "Klassisch Schwarz",
@@ -66,6 +67,8 @@
   "prismatic-carpets.pattern.ghost": "Geist",
   "prismatic-carpets.pattern.skull": "Schädel",
   "prismatic-carpets.pattern.poison": "Giftflasche",
+  "prismatic-carpets.pattern.snowflake": "Schneeflocke",
+  "prismatic-carpets.pattern.snowman": "Schneemann",
   "prismatic-carpets.pattern.barrel": "Fass",
   "prismatic-carpets.pattern.cat": "Katze",
   "prismatic-carpets.pattern.colibri": "Kolibri",
