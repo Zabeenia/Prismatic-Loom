@@ -3,6 +3,15 @@ package zabeenia.prismaticcarpets;
 public class PrismaticLoomSelections {
 
     public static final String[] PATTERNS = {
+            "prismatic_oriental_blue",
+            "prismatic_oriental_red",
+            "prismatic_oriental_green",
+            "prismatic_ornament_black",
+            "prismatic_ornament_gold",
+            "prismatic_ornament_gray",
+            "prismatic_ornament_navy",
+            "prismatic_ornament_red",
+            "prismatic_ornament_white",
             "prismatic_ivy",
             "prismatic_barrel",
             "prismatic_cat",
@@ -14,19 +23,19 @@ public class PrismaticLoomSelections {
             "prismatic_pig",
             "prismatic_sheep",
             "prismatic_swords",
-            "prismatic_shamrock",
-            "prismatic_ornament_black",
-            "prismatic_ornament_gold",
-            "prismatic_ornament_gray",
-            "prismatic_ornament_navy",
-            "prismatic_ornament_red",
-            "prismatic_ornament_white",
-            "prismatic_oriental_blue",
-            "prismatic_oriental_red",
-            "prismatic_oriental_green"
+            "prismatic_shamrock"
     };
 
     public static final String[] BORDERS = {
+            "prismatic_border_oriental_bluecorner",
+            "prismatic_border_oriental_blueedge",
+            "prismatic_border_oriental_blueframe",
+            "prismatic_border_oriental_redcorner",
+            "prismatic_border_oriental_rededge",
+            "prismatic_border_oriental_redframe",
+            "prismatic_border_oriental_greencorner",
+            "prismatic_border_oriental_greenedge",
+            "prismatic_border_oriental_greenframe",
             "prismatic_border_ivy",
             "prismatic_border_classic_black",
             "prismatic_border_classic_gray",
@@ -67,15 +76,6 @@ public class PrismaticLoomSelections {
             "prismatic_border_zigzag_purple",
             "prismatic_border_zigzag_red",
             "prismatic_border_zigzag_white",
-            "prismatic_border_zigzag_yellow",
-            "prismatic_border_oriental_bluecorner",
-            "prismatic_border_oriental_blueedge",
-            "prismatic_border_oriental_blueframe",
-            "prismatic_border_oriental_redcorner",
-            "prismatic_border_oriental_rededge",
-            "prismatic_border_oriental_redframe",
-            "prismatic_border_oriental_greencorner",
-            "prismatic_border_oriental_greenedge",
-            "prismatic_border_oriental_greenframe"
+            "prismatic_border_zigzag_yellow"
     };
 }
