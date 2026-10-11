@@ -11,12 +11,15 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.core.registries.BuiltInRegistries;
 
+import java.util.EnumMap;
+
 import zabeenia.prismaticcarpets.PrismaticLoomMenu;
 import zabeenia.prismaticcarpets.PrismaticLoomSelections;
 import zabeenia.prismaticcarpets.PrismaticCarpets;
 import zabeenia.prismaticcarpets.ModBlocks;
 import zabeenia.prismaticcarpets.PrismaticCarpetComponents;
 import zabeenia.prismaticcarpets.PrismaticCarpetData;
+import zabeenia.prismaticcarpets.PrismaticLoomSeasonalSelections;
 
 public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMenu> {
 
@@ -71,10 +74,36 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
     private static final Identifier BORDER_PAGE_RIGHT_CLICK =
             PrismaticCarpets.id("textures/gui/prismatic_gui_arrow_blue_right_click.png");
 
+    private static final Identifier BORDER_TAB_NORMAL_ACTIVE =
+            PrismaticCarpets.id("textures/gui/prismatic_border_tab_normal_active.png");
+
+    private static final Identifier BORDER_TAB_NORMAL_INACTIVE =
+            PrismaticCarpets.id("textures/gui/prismatic_border_tab_normal_inactive.png");
+
+    private static final Identifier BORDER_TAB_SEASONAL_ACTIVE =
+            PrismaticCarpets.id("textures/gui/prismatic_border_tab_seasonal_active.png");
+
+    private static final Identifier BORDER_TAB_SEASONAL_INACTIVE =
+            PrismaticCarpets.id("textures/gui/prismatic_border_tab_seasonal_inactive.png");
+
+    private static final Identifier PATTERN_TAB_NORMAL_ACTIVE =
+            PrismaticCarpets.id("textures/gui/prismatic_pattern_tab_normal_active.png");
+
+    private static final Identifier PATTERN_TAB_NORMAL_INACTIVE =
+            PrismaticCarpets.id("textures/gui/prismatic_pattern_tab_normal_inactive.png");
+
+    private static final Identifier PATTERN_TAB_SEASONAL_ACTIVE =
+            PrismaticCarpets.id("textures/gui/prismatic_pattern_tab_seasonal_active.png");
+
+    private static final Identifier PATTERN_TAB_SEASONAL_INACTIVE =
+            PrismaticCarpets.id("textures/gui/prismatic_pattern_tab_seasonal_inactive.png");
+
 
     private boolean blueBookOpen = false;
     private boolean greenBookOpen = false;
     private boolean layersSwapped = false;
+    private boolean borderSeasonal = false;
+    private boolean patternSeasonal = false;
 
     private int patternPage = 0;
     private int borderPage = 0;
@@ -92,7 +121,16 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
 
 
     private static final String[] PATTERNS = PrismaticLoomSelections.PATTERNS;
+    private static final String[] SEASONAL_PATTERNS = PrismaticLoomSeasonalSelections.PATTERNS;
     private static final String[] BORDERS = PrismaticLoomSelections.BORDERS;
+    private static final String[] SEASONAL_BORDERS =
+            PrismaticLoomSeasonalSelections.BORDERS;
+
+    private static final Identifier[] PATTERN_TEXTURES = createTextures("patterns", PATTERNS);
+    private static final Identifier[] SEASONAL_PATTERN_TEXTURES = createTextures("patterns", SEASONAL_PATTERNS);
+    private static final Identifier[] BORDER_TEXTURES = createTextures("borders", BORDERS);
+    private static final Identifier[] SEASONAL_BORDER_TEXTURES = createTextures("borders", SEASONAL_BORDERS);
+    private static final EnumMap<DyeColor, Identifier> CARPET_TEXTURES = createCarpetTextures();
 
 
     public PrismaticLoomScreen(
@@ -148,20 +186,9 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
 
             if (carpetColor != null) {
                 Identifier carpetTexture =
-                        PrismaticCarpets.id("textures/block/" + carpetColor.getName() + "_carpet.png");
+                        CARPET_TEXTURES.get(carpetColor);
 
-                graphics.blit(
-                        RenderPipelines.GUI_TEXTURED,
-                        carpetTexture,
-                        this.leftPos + 72,
-                        this.topPos + 26,
-                        0.0F,
-                        0.0F,
-                        32,
-                        32,
-                        32,
-                        32
-                );
+                drawPreviewLayer(graphics, carpetTexture);
 
                 if (!layersSwapped) {
 
@@ -169,38 +196,16 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
 
                     if (selectedPattern != -1) {
                         Identifier patternTexture =
-                                PrismaticCarpets.id("textures/patterns/" + PATTERNS[selectedPattern] + ".png");
+                                getActivePatternTextures()[selectedPattern];
 
-                        graphics.blit(
-                                RenderPipelines.GUI_TEXTURED,
-                                patternTexture,
-                                this.leftPos + 72,
-                                this.topPos + 26,
-                                0.0F,
-                                0.0F,
-                                32,
-                                32,
-                                32,
-                                32
-                        );
+                        drawPreviewLayer(graphics, patternTexture);
                     }
 
                     if (selectedBorder != -1) {
                         Identifier borderTexture =
-                                PrismaticCarpets.id("textures/borders/" + BORDERS[selectedBorder] + ".png");
+                                getActiveBorderTextures()[selectedBorder];
 
-                        graphics.blit(
-                                RenderPipelines.GUI_TEXTURED,
-                                borderTexture,
-                                this.leftPos + 72,
-                                this.topPos + 26,
-                                0.0F,
-                                0.0F,
-                                32,
-                                32,
-                                32,
-                                32
-                        );
+                        drawPreviewLayer(graphics, borderTexture);
                     }
 
                 } else {
@@ -209,38 +214,16 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
 
                     if (selectedBorder != -1) {
                         Identifier borderTexture =
-                                PrismaticCarpets.id("textures/borders/" + BORDERS[selectedBorder] + ".png");
+                                getActiveBorderTextures()[selectedBorder];
 
-                        graphics.blit(
-                                RenderPipelines.GUI_TEXTURED,
-                                borderTexture,
-                                this.leftPos + 72,
-                                this.topPos + 26,
-                                0.0F,
-                                0.0F,
-                                32,
-                                32,
-                                32,
-                                32
-                        );
+                        drawPreviewLayer(graphics, borderTexture);
                     }
 
                     if (selectedPattern != -1) {
                         Identifier patternTexture =
-                                PrismaticCarpets.id("textures/patterns/" + PATTERNS[selectedPattern] + ".png");
+                                getActivePatternTextures()[selectedPattern];
 
-                        graphics.blit(
-                                RenderPipelines.GUI_TEXTURED,
-                                patternTexture,
-                                this.leftPos + 72,
-                                this.topPos + 26,
-                                0.0F,
-                                0.0F,
-                                32,
-                                32,
-                                32,
-                                32
-                        );
+                        drawPreviewLayer(graphics, patternTexture);
                     }
                 }
             }
@@ -317,6 +300,38 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
                     256,
                     256
             );
+
+            // Normal-Tab aktiv
+            graphics.blit(
+                    RenderPipelines.GUI_TEXTURED,
+                    borderSeasonal
+                            ? BORDER_TAB_NORMAL_INACTIVE
+                            : BORDER_TAB_NORMAL_ACTIVE,
+                    this.leftPos - 136,
+                    this.topPos + 152,
+                    0.0F,
+                    0.0F,
+                    18,
+                    25,
+                    18,
+                    25
+            );
+
+            // Seasonal-Tab inaktiv
+            graphics.blit(
+                    RenderPipelines.GUI_TEXTURED,
+                    borderSeasonal
+                            ? BORDER_TAB_SEASONAL_ACTIVE
+                            : BORDER_TAB_SEASONAL_INACTIVE,
+                    this.leftPos - 31,
+                    this.topPos + 152,
+                    0.0F,
+                    0.0F,
+                    18,
+                    25,
+                    18,
+                    25
+            );
         }
 
 
@@ -334,13 +349,45 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
                     256,
                     256
             );
+
+            // Normal-Tab aktiv
+            graphics.blit(
+                    RenderPipelines.GUI_TEXTURED,
+                    patternSeasonal
+                            ? PATTERN_TAB_NORMAL_INACTIVE
+                            : PATTERN_TAB_NORMAL_ACTIVE,
+                    this.leftPos + 189,
+                    this.topPos + 152,
+                    0.0F,
+                    0.0F,
+                    18,
+                    25,
+                    18,
+                    25
+            );
+
+            // Seasonal-Tab inaktiv
+            graphics.blit(
+                    RenderPipelines.GUI_TEXTURED,
+                    patternSeasonal
+                            ? PATTERN_TAB_SEASONAL_ACTIVE
+                            : PATTERN_TAB_SEASONAL_INACTIVE,
+                    this.leftPos + 294,
+                    this.topPos + 152,
+                    0.0F,
+                    0.0F,
+                    18,
+                    25,
+                    18,
+                    25
+            );
         }
 
 
         // Pattern-Seitenpfeile
         if (greenBookOpen) {
 
-            int maxPage = (PATTERNS.length - 1) / 9;
+            int maxPage = (getActivePatterns().length - 1) / 9;
 
             // Linker Pfeil
             if (patternPage > 0) {
@@ -393,7 +440,7 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
         if (greenBookOpen) {
 
             int start = patternPage * 9;
-            int end = Math.min(start + 9, PATTERNS.length);
+            int end = Math.min(start + 9, getActivePatterns().length);
 
             hoveredPattern = -1;
 
@@ -418,10 +465,7 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
                     hoveredPattern = i;
                 }
 
-                Identifier pattern =
-                        PrismaticCarpets.id(
-                                "textures/patterns/" + PATTERNS[i] + ".png"
-                        );
+                Identifier pattern = getActivePatternTextures()[i];
 
                 graphics.blit(
                         RenderPipelines.GUI_TEXTURED,
@@ -441,7 +485,8 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
         // Pattern-Hover
         if (hoveredPattern != -1) {
 
-            graphics.text(this.font, getPatternName(hoveredPattern), this.leftPos + 250 - this.font.width(getPatternName(hoveredPattern)) / 2, this.topPos + 15, 0xFF354806, false);
+            Component name = getPatternName(hoveredPattern);
+            graphics.text(this.font, name, this.leftPos + 250 - this.font.width(name) / 2, this.topPos + 15, 0xFF354806, false);
 
             int slot = hoveredPattern - patternPage * 9;
 
@@ -456,44 +501,14 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
                     + (row > 0 ? 1 : 0)
                     + (row == 2 ? 1 : 0);
 
-            graphics.fill(
-                    x,
-                    y,
-                    x + 32,
-                    y + 1,
-                    0xFFFFFFFF
-            );
-
-            graphics.fill(
-                    x,
-                    y + 31,
-                    x + 32,
-                    y + 32,
-                    0xFFFFFFFF
-            );
-
-            graphics.fill(
-                    x,
-                    y,
-                    x + 1,
-                    y + 32,
-                    0xFFFFFFFF
-            );
-
-            graphics.fill(
-                    x + 31,
-                    y,
-                    x + 32,
-                    y + 32,
-                    0xFFFFFFFF
-            );
+            drawSelectionOutline(graphics, x, y);
         }
 
         // Border-Auswahl
         if (blueBookOpen) {
 
             int start = borderPage * 9;
-            int end = Math.min(start + 9, BORDERS.length);
+            int end = Math.min(start + 9, getActiveBorders().length);
 
             hoveredBorder = -1;
 
@@ -518,10 +533,7 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
                     hoveredBorder = i;
                 }
 
-                Identifier border =
-                        PrismaticCarpets.id(
-                                "textures/borders/" + BORDERS[i] + ".png"
-                        );
+                Identifier border = getActiveBorderTextures()[i];
 
                 graphics.blit(
                         RenderPipelines.GUI_TEXTURED,
@@ -537,7 +549,8 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
                 );
             }
             if (hoveredBorder != -1) {
-                graphics.text(this.font, getBorderName(hoveredBorder), this.leftPos - 75 - this.font.width(getBorderName(hoveredBorder)) / 2, this.topPos + 15, 0xFF00326C, false);
+                Component name = getBorderName(hoveredBorder);
+                graphics.text(this.font, name, this.leftPos - 75 - this.font.width(name) / 2, this.topPos + 15, 0xFF00326C, false);
             }
         }
 
@@ -557,43 +570,13 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
                     + (row > 0 ? 1 : 0)
                     + (row == 2 ? 1 : 0);
 
-            graphics.fill(
-                    x,
-                    y,
-                    x + 32,
-                    y + 1,
-                    0xFFFFFFFF
-            );
-
-            graphics.fill(
-                    x,
-                    y + 31,
-                    x + 32,
-                    y + 32,
-                    0xFFFFFFFF
-            );
-
-            graphics.fill(
-                    x,
-                    y,
-                    x + 1,
-                    y + 32,
-                    0xFFFFFFFF
-            );
-
-            graphics.fill(
-                    x + 31,
-                    y,
-                    x + 32,
-                    y + 32,
-                    0xFFFFFFFF
-            );
+            drawSelectionOutline(graphics, x, y);
         }
 
 // Border-Seitenpfeile
         if (blueBookOpen) {
 
-            int maxPage = (BORDERS.length - 1) / 9;
+            int maxPage = (getActiveBorders().length - 1) / 9;
 
             // Linker Pfeil
             if (borderPage > 0) {
@@ -679,16 +662,39 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
             blueBookOpen = !blueBookOpen;
 
             if (!blueBookOpen) {
-                selectedBorder = -1;
-                this.minecraft.gameMode.handleInventoryButtonClick(
-                        this.menu.containerId,
-                        PrismaticLoomMenu.CLEAR_BORDER_BUTTON_ID
-                );
+                clearBorderSelection();
             }
 
             return true;
         }
 
+// Border-Tab: Normal
+        if (blueBookOpen
+                && mouseX >= this.leftPos - 136
+                && mouseX < this.leftPos - 118
+                && mouseY >= this.topPos + 152
+                && mouseY < this.topPos + 177) {
+
+            borderSeasonal = false;
+            borderPage = 0;
+            hoveredBorder = -1;
+            clearBorderSelection();
+            return true;
+        }
+
+// Border-Tab: Seasonal
+        if (blueBookOpen
+                && mouseX >= this.leftPos - 31
+                && mouseX < this.leftPos - 13
+                && mouseY >= this.topPos + 152
+                && mouseY < this.topPos + 177) {
+
+            borderSeasonal = true;
+            borderPage = 0;
+            hoveredBorder = -1;
+            clearBorderSelection();
+            return true;
+        }
 
         // Grünes Buch
         if (bookX >= 23 && bookX <= 52
@@ -697,16 +703,40 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
             greenBookOpen = !greenBookOpen;
 
             if (!greenBookOpen) {
-                selectedPattern = -1;
-                this.minecraft.gameMode.handleInventoryButtonClick(
-                        this.menu.containerId,
-                        PrismaticLoomMenu.CLEAR_PATTERN_BUTTON_ID
-                );
+                clearPatternSelection();
             }
 
             return true;
         }
 
+        // Pattern-Tab: Normal
+        if (greenBookOpen
+                && mouseX >= this.leftPos + 189
+                && mouseX < this.leftPos + 207
+                && mouseY >= this.topPos + 152
+                && mouseY < this.topPos + 177) {
+
+            patternSeasonal = false;
+            patternPage = 0;
+            hoveredPattern = -1;
+            clearPatternSelection();
+            return true;
+        }
+
+
+// Pattern-Tab: Seasonal
+        if (greenBookOpen
+                && mouseX >= this.leftPos + 294
+                && mouseX < this.leftPos + 312
+                && mouseY >= this.topPos + 152
+                && mouseY < this.topPos + 177) {
+
+            patternSeasonal = true;
+            patternPage = 0;
+            hoveredPattern = -1;
+            clearPatternSelection();
+            return true;
+        }
 
         // Layer-Wechsel-Button
         if (bookX >= 123 && bookX <= 141
@@ -746,7 +776,7 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
                 && mouseY >= this.topPos + 140
                 && mouseY <= this.topPos + 158) {
 
-            int maxPage = (PATTERNS.length - 1) / 9;
+            int maxPage = (getActivePatterns().length - 1) / 9;
 
             if (patternPage < maxPage) {
                 patternPage++;
@@ -758,7 +788,7 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
 
         if (greenBookOpen) {
             int start = patternPage * 9;
-            int end = Math.min(start + 9, PATTERNS.length);
+            int end = Math.min(start + 9, getActivePatterns().length);
 
             for (int i = start; i < end; i++) {
                 int slot = i - start;
@@ -777,7 +807,9 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
 
                     this.minecraft.gameMode.handleInventoryButtonClick(
                             this.menu.containerId,
-                            PrismaticLoomMenu.PATTERN_BUTTON_START_ID + i
+                            (patternSeasonal
+                                    ? PrismaticLoomMenu.SEASONAL_PATTERN_BUTTON_START_ID
+                                    : PrismaticLoomMenu.PATTERN_BUTTON_START_ID) + i
                     );
 
                     selectedPattern = i;
@@ -788,7 +820,7 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
 // Border-Auswahl
         if (blueBookOpen) {
             int start = borderPage * 9;
-            int end = Math.min(start + 9, BORDERS.length);
+            int end = Math.min(start + 9, getActiveBorders().length);
 
             for (int i = start; i < end; i++) {
                 int slot = i - start;
@@ -808,7 +840,9 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
                     selectedBorder = i;
                     this.minecraft.gameMode.handleInventoryButtonClick(
                             this.menu.containerId,
-                            PrismaticLoomMenu.BORDER_BUTTON_START_ID + i
+                            (borderSeasonal
+                                    ? PrismaticLoomMenu.SEASONAL_BORDER_BUTTON_START_ID
+                                    : PrismaticLoomMenu.BORDER_BUTTON_START_ID) + i
                     );
                     return true;
                 }
@@ -837,7 +871,7 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
                 && mouseY >= this.topPos + 140
                 && mouseY <= this.topPos + 158) {
 
-            int maxPage = (BORDERS.length - 1) / 9;
+            int maxPage = (getActiveBorders().length - 1) / 9;
 
             if (borderPage < maxPage) {
                 borderPage++;
@@ -850,16 +884,86 @@ public class PrismaticLoomScreen extends AbstractContainerScreen<PrismaticLoomMe
         return super.mouseClicked(event, doubleClick);
     }
 
+    private static Identifier[] createTextures(String directory, String[] names) {
+        Identifier[] textures = new Identifier[names.length];
+        for (int i = 0; i < names.length; i++) {
+            textures[i] = PrismaticCarpets.id("textures/" + directory + "/" + names[i] + ".png");
+        }
+        return textures;
+    }
+
+    private static EnumMap<DyeColor, Identifier> createCarpetTextures() {
+        EnumMap<DyeColor, Identifier> textures = new EnumMap<>(DyeColor.class);
+        for (DyeColor color : DyeColor.values()) {
+            textures.put(color, PrismaticCarpets.id("textures/block/" + color.getName() + "_carpet.png"));
+        }
+        return textures;
+    }
+
+    private Identifier[] getActivePatternTextures() {
+        return patternSeasonal ? SEASONAL_PATTERN_TEXTURES : PATTERN_TEXTURES;
+    }
+
+    private Identifier[] getActiveBorderTextures() {
+        return borderSeasonal ? SEASONAL_BORDER_TEXTURES : BORDER_TEXTURES;
+    }
+
+    private void drawPreviewLayer(GuiGraphicsExtractor graphics, Identifier texture) {
+        graphics.blit(
+                RenderPipelines.GUI_TEXTURED,
+                texture,
+                this.leftPos + 72,
+                this.topPos + 26,
+                0.0F,
+                0.0F,
+                32,
+                32,
+                32,
+                32
+        );
+    }
+
+    private void drawSelectionOutline(GuiGraphicsExtractor graphics, int x, int y) {
+        graphics.fill(x, y, x + 32, y + 1, 0xFFFFFFFF);
+        graphics.fill(x, y + 31, x + 32, y + 32, 0xFFFFFFFF);
+        graphics.fill(x, y, x + 1, y + 32, 0xFFFFFFFF);
+        graphics.fill(x + 31, y, x + 32, y + 32, 0xFFFFFFFF);
+    }
+
+    private void clearPatternSelection() {
+        selectedPattern = -1;
+        this.minecraft.gameMode.handleInventoryButtonClick(
+                this.menu.containerId,
+                PrismaticLoomMenu.CLEAR_PATTERN_BUTTON_ID
+        );
+    }
+
+    private void clearBorderSelection() {
+        selectedBorder = -1;
+        this.minecraft.gameMode.handleInventoryButtonClick(
+                this.menu.containerId,
+                PrismaticLoomMenu.CLEAR_BORDER_BUTTON_ID
+        );
+    }
+
+    private String[] getActivePatterns() {
+        return patternSeasonal ? SEASONAL_PATTERNS : PATTERNS;
+    }
+
     private net.minecraft.network.chat.Component getPatternName(int index) {
-        String name = PATTERNS[index].substring("prismatic_".length());
+        String name = getActivePatterns()[index].substring("prismatic_".length());
 
         return net.minecraft.network.chat.Component.translatable(
                 "prismatic-carpets.pattern." + name
         );
     }
 
+    private String[] getActiveBorders() {
+        return borderSeasonal ? SEASONAL_BORDERS : BORDERS;
+    }
+
     private net.minecraft.network.chat.Component getBorderName(int index) {
-        String name = BORDERS[index].substring("prismatic_border_".length());
+        String name = getActiveBorders()[index].substring("prismatic_border_".length());
 
         return net.minecraft.network.chat.Component.translatable(
                 "prismatic-carpets.border." + name.replaceFirst("_", ".")

@@ -22,6 +22,9 @@ public class PrismaticLoomMenu extends AbstractContainerMenu {
     public static final int BORDER_BUTTON_START_ID = CLEAR_PATTERN_BUTTON_ID + 1;
     public static final int CLEAR_BORDER_BUTTON_ID =
             BORDER_BUTTON_START_ID + PrismaticLoomSelections.BORDERS.length;
+    public static final int SEASONAL_PATTERN_BUTTON_START_ID = CLEAR_BORDER_BUTTON_ID + 1;
+    public static final int SEASONAL_BORDER_BUTTON_START_ID =
+            SEASONAL_PATTERN_BUTTON_START_ID + PrismaticLoomSeasonalSelections.PATTERNS.length;
 
     // Unsere drei Slots:
 // 0 = Prismatisches Garn
@@ -144,7 +147,7 @@ public class PrismaticLoomMenu extends AbstractContainerMenu {
         ItemStack stack = slot.getItem();
         ItemStack clicked = stack.copy();
 
-        if (slotIndex < INVENTORY_END) {
+        if (slotIndex < INVENTORY_START) {
             if (!this.moveItemStackTo(
                     stack,
                     INVENTORY_START,
@@ -153,15 +156,26 @@ public class PrismaticLoomMenu extends AbstractContainerMenu {
             )) {
                 return ItemStack.EMPTY;
             }
-        } else {
+        } else if (stack.is(ModItems.PRISMATIC_YARNS)) {
             if (!this.moveItemStackTo(
                     stack,
                     0,
-                    INPUT_SLOTS,
+                    1,
                     false
             )) {
                 return ItemStack.EMPTY;
             }
+        } else if (Items.CARPET.asList().contains(stack.getItem())) {
+            if (!this.moveItemStackTo(
+                    stack,
+                    1,
+                    2,
+                    false
+            )) {
+                return ItemStack.EMPTY;
+            }
+        } else {
+            return ItemStack.EMPTY;
         }
 
         if (stack.isEmpty()) {
@@ -169,6 +183,12 @@ public class PrismaticLoomMenu extends AbstractContainerMenu {
         } else {
             slot.setChanged();
         }
+
+        if (stack.getCount() == clicked.getCount()) {
+            return ItemStack.EMPTY;
+        }
+
+        slot.onTake(player, stack);
 
         return clicked;
     }
@@ -256,6 +276,23 @@ public class PrismaticLoomMenu extends AbstractContainerMenu {
 
         if (id == CLEAR_BORDER_BUTTON_ID) {
             this.selectedBorder = "";
+            this.updateResult();
+            return true;
+        }
+
+        if (id >= SEASONAL_PATTERN_BUTTON_START_ID && id < SEASONAL_BORDER_BUTTON_START_ID) {
+            this.selectedPattern = PrismaticLoomSeasonalSelections.PATTERNS[
+                    id - SEASONAL_PATTERN_BUTTON_START_ID
+            ];
+            this.updateResult();
+            return true;
+        }
+
+        if (id >= SEASONAL_BORDER_BUTTON_START_ID
+                && id < SEASONAL_BORDER_BUTTON_START_ID + PrismaticLoomSeasonalSelections.BORDERS.length) {
+            this.selectedBorder = PrismaticLoomSeasonalSelections.BORDERS[
+                    id - SEASONAL_BORDER_BUTTON_START_ID
+            ];
             this.updateResult();
             return true;
         }
