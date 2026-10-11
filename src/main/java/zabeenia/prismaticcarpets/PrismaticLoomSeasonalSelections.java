@@ -7,8 +7,8 @@ public class PrismaticLoomSeasonalSelections {
             "prismatic_pumpkins",
             "prismatic_jackolantern",
             "prismatic_ghost",
-            "prismatic_skull",
             "prismatic_poison",
+            "prismatic_skull",
             "prismatic_snowflake",
             "prismatic_snowflakes",
             "prismatic_snowman"
