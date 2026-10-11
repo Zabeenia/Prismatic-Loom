@@ -3,7 +3,6 @@ package zabeenia.prismaticcarpets;
 public class PrismaticLoomSelections {
 
     public static final String[] PATTERNS = {
-            "prismatic_ivy",
             "prismatic_autumn_leaves",
             "prismatic_pumpkins",
             "prismatic_jackolantern",
@@ -11,7 +10,9 @@ public class PrismaticLoomSelections {
             "prismatic_skull",
             "prismatic_poison",
             "prismatic_snowflake",
+            "prismatic_snowflakes",
             "prismatic_snowman",
+            "prismatic_ivy",
             "prismatic_barrel",
             "prismatic_cat",
             "prismatic_colibri",
@@ -35,9 +36,9 @@ public class PrismaticLoomSelections {
     };
 
     public static final String[] BORDERS = {
-            "prismatic_border_ivy",
             "prismatic_border_autumn",
             "prismatic_border_winter_snowflake",
+            "prismatic_border_ivy",
             "prismatic_border_classic_black",
             "prismatic_border_classic_gray",
             "prismatic_border_classic_green",
