@@ -5,7 +5,15 @@
 
   "prismatic-carpets.border.autumn": "Herbst",
   "prismatic-carpets.border.winter.snowflake": "Schneeflocke",
+  "prismatic-carpets.border.winter.snowflakestarscorner": "Winternacht Ecke",
+  "prismatic-carpets.border.winter.snowflakestarsedge": "Winternacht Rand",
   "prismatic-carpets.border.ivy": "Efeu",
+  "prismatic-carpets.border.mistletoe": "Mistelzweig Rahmen",
+  "prismatic-carpets.border.mistletoeberries": "Mistelzweig",
+  "prismatic-carpets.border.mistletoe.corner": "Mistelzweig Ecke",
+  "prismatic-carpets.border.mistletoe.edge": "Mistelzweig Rand",
+  "prismatic-carpets.border.winter.christmaslightscorner": "Weihnachtslichter Ecke",
+  "prismatic-carpets.border.winter.christmaslightsedge": "Weihnachtslichter Rand",
 
   "prismatic-carpets.border.classic.black": "Klassisch Schwarz",
   "prismatic-carpets.border.classic.gray": "Klassisch Grau",
@@ -61,6 +69,16 @@
   "prismatic-carpets.border.oriental.greenedge": "Orientalisch Grün Rand",
   "prismatic-carpets.border.oriental.greenframe": "Orientalisch Grün Rahmen",
 
+  "prismatic-carpets.border.persian.bluecorner": "Persisch Blau Ecke",
+  "prismatic-carpets.border.persian.blueedge": "Persisch Blau Rand",
+  "prismatic-carpets.border.persian.blue": "Persisch Blau",
+  "prismatic-carpets.border.persian.redcorner": "Persisch Rot Ecke",
+  "prismatic-carpets.border.persian.rededge": "Persisch Rot Rand",
+  "prismatic-carpets.border.persian.red": "Persisch Rot",
+  "prismatic-carpets.border.persian.greencorner": "Persisch Grün Ecke",
+  "prismatic-carpets.border.persian.greenedge": "Persisch Grün Rand",
+  "prismatic-carpets.border.persian.green": "Persisch Grün",
+
   "prismatic-carpets.pattern.autumn_leaves": "Herbstblätter",
   "prismatic-carpets.pattern.pumpkins": "Kürbisse",
   "prismatic-carpets.pattern.jackolantern": "Kürbislaterne",
@@ -90,5 +108,15 @@
   "prismatic-carpets.pattern.ornament_white": "Ornament Weiß",
   "prismatic-carpets.pattern.oriental_blue": "Orientalisch Blau",
   "prismatic-carpets.pattern.oriental_red": "Orientalisch Rot",
-  "prismatic-carpets.pattern.oriental_green": "Orientalisch Grün"
+  "prismatic-carpets.pattern.oriental_green": "Orientalisch Grün",
+  "prismatic-carpets.pattern.christmastree": "Weihnachtsbaum",
+  "prismatic-carpets.pattern.goldenbell": "Goldene Glocke",
+  "prismatic-carpets.pattern.stocking": "Weihnachtsstrumpf",
+  "prismatic-carpets.pattern.gingerbreadman": "Lebkuchenmann",
+  "prismatic-carpets.pattern.candycane": "Zuckerstange",
+  "prismatic-carpets.pattern.candycanes": "Zuckerstangen",
+  "prismatic-carpets.pattern.compassrose": "Windrose",
+  "prismatic-carpets.pattern.christmasstar": "Weihnachtsstern",
+  "prismatic-carpets.pattern.christmaswreath": "Weihnachtskranz",
+  "prismatic-carpets.pattern.santa": "Weihnachtsmann"
 }

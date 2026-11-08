@@ -5,7 +5,15 @@
 
   "prismatic-carpets.border.autumn": "Autumn",
   "prismatic-carpets.border.winter.snowflake": "Snowflake",
+  "prismatic-carpets.border.winter.snowflakestarscorner": "Wintersky Corner",
+  "prismatic-carpets.border.winter.snowflakestarsedge": "Wintersky Edge",
   "prismatic-carpets.border.ivy": "Ivy",
+  "prismatic-carpets.border.mistletoe": "Mistletoe Frame",
+  "prismatic-carpets.border.mistletoeberries": "Mistltoe",
+  "prismatic-carpets.border.mistletoe.corner": "Mistletoe Corner",
+  "prismatic-carpets.border.mistletoe.edge": "Mistletoe Edge",
+  "prismatic-carpets.border.winter.christmaslightscorner": "Christmas Lights Corner",
+  "prismatic-carpets.border.winter.christmaslightsedge": "Christmas Lights Edge",
 
   "prismatic-carpets.border.classic.black": "Classic Black",
   "prismatic-carpets.border.classic.gray": "Classic Gray",
@@ -61,6 +69,16 @@
   "prismatic-carpets.border.oriental.greenedge": "Oriental Green Edge",
   "prismatic-carpets.border.oriental.greenframe": "Oriental Green Frame",
 
+  "prismatic-carpets.border.persian.bluecorner": "Persian Blue Corner",
+  "prismatic-carpets.border.persian.blueedge": "Persian Blue Edge",
+  "prismatic-carpets.border.persian.blue": "Persian Blue",
+  "prismatic-carpets.border.persian.redcorner": "Persian Red Corner",
+  "prismatic-carpets.border.persian.rededge": "Persian Red Edge",
+  "prismatic-carpets.border.persian.red": "Persian Red",
+  "prismatic-carpets.border.persian.greencorner": "Persian Green Corner",
+  "prismatic-carpets.border.persian.greenedge": "Persian Green Edge",
+  "prismatic-carpets.border.persian.green": "Persian Green",
+
   "prismatic-carpets.pattern.autumn_leaves": "Autumn Leaves",
   "prismatic-carpets.pattern.pumpkins": "Pumpkins",
   "prismatic-carpets.pattern.jackolantern": "Jack-o'-Lantern",
@@ -90,5 +108,15 @@
   "prismatic-carpets.pattern.ornament_white": "Ornament White",
   "prismatic-carpets.pattern.oriental_blue": "Oriental Blue",
   "prismatic-carpets.pattern.oriental_red": "Oriental Red",
-  "prismatic-carpets.pattern.oriental_green": "Oriental Green"
+  "prismatic-carpets.pattern.oriental_green": "Oriental Green",
+  "prismatic-carpets.pattern.christmastree": "Christmas Tree",
+  "prismatic-carpets.pattern.goldenbell": "Golden Bell",
+  "prismatic-carpets.pattern.stocking": "Stocking",
+  "prismatic-carpets.pattern.gingerbreadman": "Gingerbread Man",
+  "prismatic-carpets.pattern.candycane": "Candy Cane",
+  "prismatic-carpets.pattern.candycanes": "Candy Canes",
+  "prismatic-carpets.pattern.compassrose": "Compass rose",
+  "prismatic-carpets.pattern.christmasstar": "Christmas Star",
+  "prismatic-carpets.pattern.christmaswreath": "Christmas Wreath",
+  "prismatic-carpets.pattern.santa": "Santa Claus"
 }
