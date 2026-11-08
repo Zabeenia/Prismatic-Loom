@@ -23,7 +23,8 @@ public class PrismaticLoomSelections {
             "prismatic_pig",
             "prismatic_sheep",
             "prismatic_swords",
-            "prismatic_shamrock"
+            "prismatic_shamrock",
+            "prismatic_compassrose"
     };
 
     public static final String[] BORDERS = {
@@ -36,6 +37,15 @@ public class PrismaticLoomSelections {
             "prismatic_border_oriental_greencorner",
             "prismatic_border_oriental_greenedge",
             "prismatic_border_oriental_greenframe",
+            "prismatic_border_persian_bluecorner",
+            "prismatic_border_persian_blueedge",
+            "prismatic_border_persian_blue",
+            "prismatic_border_persian_redcorner",
+            "prismatic_border_persian_rededge",
+            "prismatic_border_persian_red",
+            "prismatic_border_persian_greencorner",
+            "prismatic_border_persian_greenedge",
+            "prismatic_border_persian_green",
             "prismatic_border_ivy",
             "prismatic_border_classic_black",
             "prismatic_border_classic_gray",
